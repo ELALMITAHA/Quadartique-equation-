@@ -72,30 +72,35 @@ class SolveQuad(QWidget):
 		self.setLayout(glbl_box)
 	
 	def solve2dEquation(self) :  
+		import math 
+
 		try : 
 			a = float(self.a_linedit.text())
 			b = float(self.b_linedit.text())
 			c = float(self.c_linedit.text())
 		except ValueError : 
 			self.solution.setText("You must give a numerical value !!")
+			return "" 
 
-		if a == 0 : 
-			self.solution.setText(" a must not equal to 0 !!")
+		try : 
+			delta = b**2 - 4*a*c
 
-		delta = b**2 - 4*a*c
+			if delta < 0 : 
+				self.solution.setText(" Pas de solutions reelles ")
+			elif delta == 0:
+				x = -b/(2*a)
+				x = str(x)
+				self.solution.setText("solution unique : " +  x ) 
+			else : 
+				x1 = (-b - math.sqrt(delta))/(2*a)
+				x1 = str(x1)
+				x2 = str((-b + math.sqrt(delta))/(2*a))
+				x2 = str(x2)
+				self.solution.setText(f'x1 =  {x1}  ;   x2 = {x2}' )
+		except ZeroDivisionError:
+			self.solution.setText(" a must be different from 0!!")
+			return "" 
 
-		if delta < 0 : 
-			self.solution.setText(" Pas de solutions reelles ")
-		elif delta == 0:
-			x = -b/(2*a)
-			x = str(x)
-			self.solution.setText("solution unique : " +  x ) 
-		else : 
-			x1 = (-b - math.sqrt(delta))/(2*a)
-			x1 = str(x1)
-			x2 = str((-b + math.sqrt(delta))/(2*a))
-			x2 = str(x2)
-			self.solution.setText(f'x1 =  {x1}  ;   x2 = {x2}' )
 
 
 if __name__ == "__main__": 
