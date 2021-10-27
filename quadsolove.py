@@ -10,7 +10,10 @@ from PyQt5.QtWidgets import (QApplication,
 from PyQt5.QtGui import QFont
 
 class SolveQuad(QWidget):
-	""" doc string to do later """ 
+	""" doc string to do later
+		This classe solve quadratique equation 
+		using descriminant methode. 
+	 """ 
 
 	def __init__(self): 
 		super().__init__()
@@ -89,10 +92,10 @@ class SolveQuad(QWidget):
 				self.solution.setText(" No real solutions  ")
 			elif delta == 0:
 				x = -b/(2*a)
-				self.solution.setText(f"solution  :   x ") 
+				self.solution.setText(f"solution  :   {x} ") 
 			else : 
 				x1 = (-b - math.sqrt(delta))/(2*a)
-				x2 = str((-b + math.sqrt(delta))/(2*a))
+				x2 = (-b + math.sqrt(delta))/(2*a)
 				self.solution.setText(f'x1 =  {x1}  ;   x2 = {x2}' )
 		except ZeroDivisionError:
 			self.solution.setText(" a must be different from 0!!")
