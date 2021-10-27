@@ -86,22 +86,17 @@ class SolveQuad(QWidget):
 			delta = b**2 - 4*a*c
 
 			if delta < 0 : 
-				self.solution.setText(" Pas de solutions reelles ")
+				self.solution.setText(" No real solutions  ")
 			elif delta == 0:
 				x = -b/(2*a)
-				x = str(x)
-				self.solution.setText("solution unique : " +  x ) 
+				self.solution.setText(f"solution  :   x ") 
 			else : 
 				x1 = (-b - math.sqrt(delta))/(2*a)
-				x1 = str(x1)
 				x2 = str((-b + math.sqrt(delta))/(2*a))
-				x2 = str(x2)
 				self.solution.setText(f'x1 =  {x1}  ;   x2 = {x2}' )
 		except ZeroDivisionError:
 			self.solution.setText(" a must be different from 0!!")
 			return "" 
-
-
 
 if __name__ == "__main__": 
 	app = QApplication([])
