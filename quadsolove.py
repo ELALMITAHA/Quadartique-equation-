@@ -10,7 +10,7 @@ from PyQt5.QtWidgets import (QApplication,
 from PyQt5.QtGui import QFont
 
 class SolveQuad(QWidget):
-	""" doc string to do later
+	""" 
 		This classe solve quadratique equation 
 		using descriminant methode. 
 	 """ 
